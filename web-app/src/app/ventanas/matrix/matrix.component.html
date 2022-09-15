@@ -1,0 +1,249 @@
+<!-- <app-carousel [images]="images"></app-carousel> -->
+
+<h2>{{ 'Modelos de mezcla' | translate }}</h2>
+<p>{{ 'Los modelos de mezcla son una herramienta estadística que nos permite estimar contribuciones de fuentes a una mezcla.' | translate }}</p>
+<p>{{ 'Esta página permite resolver sistemas de ecuaciones lineales con restricciones, y calcular la función objetivo de estas ecuaciones' | translate }}</p>
+
+<div class="container">
+    <h2>{{ 'Introducción datos:' | translate }}</h2>
+
+    <form (ngSubmit)="crearMatrix()" [formGroup]="miFormulario">
+
+        <!-- Campo n-alcanoas -->
+        <div class="mb-3">
+            <label class="col">{{ 'Número de marcadores' | translate }}</label>
+            <div class="col-3">
+
+                <input type="number"
+                    class="form-control"
+                    formControlName="alcanos"
+                    placeholder="Introduce el número de alcanos">
+
+            </div>
+        </div>
+        <br>
+
+        <div class="mb-3">
+            <label class="col">{{ 'Número de fuentes' | translate}}</label>
+            <div class="col-3">
+
+                <input type="number"
+                    class="form-control"
+                    formControlName="plantas"
+                    placeholder="Introduce el número de plantas">
+
+            </div>
+        </div>
+        <br>
+
+        <div >
+            <div >
+                <button type="submit"
+                        class="btn btn-primary"
+                        [disabled]="(miFormulario.invalid)">
+                        {{ 'Crear' | translate }}
+                </button>
+            </div>
+            <br>
+            <div class="col-6 float-end">
+                <input #myInput class="form-control mb-5" type="file" class="upload" 
+                (change)="changeListener($event.target)">
+            </div>
+
+                
+        </div>
+
+    </form>
+    
+    <hr>
+    <!-- posible routeroutlet y  -->
+    <div *ngIf="nuevoArray.length > 0">        
+
+        <form (ngSubmit)="data()" >
+
+            <table>
+                <thead>
+                    <th scope="col" *ngFor="let column of headers; let col_index = index">
+                        <ng-container *ngIf="col_index === 0">{{column}}</ng-container>
+                        <ng-container *ngIf="col_index > 0">{{ 'º marcador' | translate: {col_index: col_index} }}</ng-container>
+                        
+                    </th>
+                </thead>
+                <tbody>                    
+                
+                <ng-container [formGroup]="Matrix">
+                    <ng-container formArrayName="plants">
+                        <ng-container *ngFor="let plants of plantsFormGroups.controls; let planti=index">
+                            
+                            <ng-container [formGroupName]="planti"]>
+
+                                <ng-container *ngFor="let fila of plantas; let i = index ; trackBy:customTrackBy" >
+                                    <tr *ngIf="planti === i">
+                                        <td>
+                                            <form > 
+                                                <div ngModelGroup="plantas">
+                                                    <input type="text" class="border-input" [(ngModel)]="plantas[i]" [ngModelOptions]="{standalone: true}">
+                                                </div>
+                                            </form>
+                                        </td>
+                                        
+                                        <ng-container formArrayName="alcanes">
+                                            <ng-container *ngFor="let alc of alcanesFormGroups(planti).controls; let index = index">
+                                                <ng-container [formGroupName]="index">
+                                                    <td>
+                                                        <input type="text" formControlName="value">
+        
+                                                    </td>
+                                                </ng-container>
+                                            </ng-container>                                
+                                        </ng-container>
+                                    </tr>
+                                    
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>  
+                </ng-container>
+                <br>
+                <ng-container [formGroup]="Results">
+                    <ng-container formArrayName="faecal">
+                        <ng-container *ngFor="let faecal of faecalFormGroups.controls; let feci=index">
+                            
+                            <ng-container [formGroupName]="feci"]>
+                                <ng-container *ngFor="let fila of samples   ; let i = index" >
+                                    <tr *ngIf="feci === i">
+        
+                                        <th scope="row">{{ 'Mezcla-' | translate: {mixture_index: i+1} }}</th>
+                                        
+                                        <ng-container formArrayName="alcanes">
+                                            <ng-container *ngFor="let alc of alcanesFecalFormGroups(feci).controls; let index = index">
+                                                <ng-container [formGroupName]="index">
+                                                    <td>
+                                                        <input type="text" formControlName="value">
+                                                        
+                                                    </td>
+                                                    <ng-container *ngIf="index+1 === alcanesFecalFormGroups(feci).controls.length && i+1 === samples.length">
+                                                        &nbsp;&nbsp;
+                                                        <td>
+                                                            <span (click)="addSamples()" data-toggle="tooltip" data-placement="rigth" title="{{'Añadir Mezcla' | translate}}">
+                                                                <img src="./../../../assets/png/add.png" alt="image">                                                                
+                                                            </span>
+                                                        </td>
+                                                    </ng-container>
+                                                </ng-container>
+                                            </ng-container>                                
+                                        </ng-container>
+                                    </tr>
+                                    
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>  
+                </ng-container>
+
+                
+                
+
+                    
+
+                </tbody>
+            </table>
+            <br>
+            <button type="submit" class="btn btn-secondary">
+                {{ 'Resolver' | translate}}
+            </button>
+                
+        </form>
+    </div>
+
+    <div *ngIf="solutionMax.length === samples.length && solutionMin.length === samples.length && samples.length > 0">
+
+        <br>
+        <hr>
+        <ng-container  *ngIf="closestFeasibleMixture.length > 0">
+            {{ 'Las siguientes mezclas no pueden haber sido generadas por las fuentes proporcionadas' | translate }}
+            <br>
+            {{ 'Se ha tomado la mezcla compatible más cercana a la proporcionada por el usuario' | translate }}
+            <br>
+            <ng-container *ngFor="let closestMixt of closestFeasibleMixture">
+                {{closestMixt}}
+                <br>
+            </ng-container>
+
+        </ng-container>
+        <br>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="1"></th>
+                    <ng-container *ngFor="let sample of samples; let sampli = index">
+                        <th colspan="3">{{ 'Mezcla' | translate}}{{sampli+1}}</th>
+                        
+                    </ng-container>
+                </tr>
+                <tr>
+                    <th></th>
+                    <ng-container *ngFor="let sample of samples">
+                        <th>[ Min</th>
+                        <th>, Max ]</th>
+                        <th colspan="1">&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    </ng-container>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let planta of plantas; let planti = index">
+                    <tr>
+                        <td>
+                            <form > 
+                                <div ngModelGroup="plantas">
+                                    <input readonly type="text" class="border-input" [(ngModel)]="plantas[planti]" [ngModelOptions]="{standalone: true}">
+                                </div>
+                            </form>
+                        </td>
+                        <ng-container *ngFor="let sample of samples; let sampli = index">
+                            <td>
+                                [ 
+                                <button type="button" class="btn btn-secondary" (click)="download('min',sampli+1,planti)" >
+                                    {{ solutionMin[sampli][planti] }}
+                                </button>
+                            </td>
+                            <td>
+                                ,
+                                <button type="button" class="btn btn-secondary" (click)="download('max',sampli+1,planti)" >
+                                    {{ solutionMax[sampli][planti] }}
+                                </button>
+                                 ]
+                            </td>
+                            <td colspan="1"></td>
+                        </ng-container>
+                    </tr>
+                    
+                </ng-container>
+                
+            </tbody>
+        </table>
+
+        <br>
+        <div>
+            <button type="button" class="btn btn-success" (click)="exportProblem()">{{ 'Exportar problema' | translate}}</button>
+            &nbsp;
+            <button type="button" class="btn btn-success" (click)="exportSolution()">{{ 'Exportar solución' | translate}}</button>
+        </div>
+    </div>
+
+    <div class="tooltip">Hover over me
+        <span class="tooltiptext">Tooltip text</span>
+    </div>
+
+    <div class="tooltip ">Hover over me
+        <span class="tooltiptext">
+            <ng-container *ngIf="arraysTexts.length > 0 ">
+                <ng-container *ngFor="let temp of arraysTexts[0].min[1][1]">{{temp}}<br></ng-container> <!-- en vez de temporal llamar function devuelva array -->
+
+            </ng-container>
+        </span>
+    </div>
+</div>

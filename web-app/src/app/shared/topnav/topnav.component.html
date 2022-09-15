@@ -1,0 +1,26 @@
+
+<div class="topnav">
+    <a id=home class="tabmenu active" routerLink="/ventanas/matrix" routerLinkActive="active"  (click)="changeMenu('home')">Problema</a> 
+    <a id=video class="tabmenu" [routerLink]="['/ventanas/video']" routerLinkActive="active"   (click)="changeMenu('video')">Video</a>
+    <!-- <div class="icon"> -->
+        <a href="https://github.com/humbertoms99/DIET_COMPOSITION">
+            <img src="./../../../assets/png/GitHub-Mark-Light-64px.png" alt="image" style="height: 21px; ">  
+        </a>
+
+    <!-- </div> -->
+    <!-- <a href="https://github.com/humbertoms99/DIET_COMPOSITION">Github</a> -->
+    <a [matMenuTriggerFor]="menu">About</a>
+    <mat-menu #menu="matMenu">
+        <span mat-menu-item>{{ 'Humberto Marijuán Santamaría' }}</span>
+        <span mat-menu-item>{{ 'Luis Rodrigo Izquierdo Millán' }}</span>
+        <span mat-menu-item>{{ 'José Manuel Galán Ordax' }}</span>
+    </mat-menu>
+
+    <div class="split ">        
+        <select class="custom-select" (change)="changeLang($event.target)">
+            <option value="en" [selected]="lang == 'en'">English</option>
+            <option value="es" [selected]="lang == 'es'">Español</option>
+        </select>
+    </div>    
+</div> 
+  

@@ -1,0 +1,17 @@
+{
+    "Número de marcadores": "Número de marcadores",
+    "Número de fuentes": "Número de fuentes",
+    "Crear": "Crear",
+    "Seleccionar archivo": "Seleccionar archivo",
+    "Exportar problema": "Exportar problema",
+    "Exportar solución": "Exportar solución",
+    "Añadir Mezcla": "Añadir Mezcla",
+    "Resolver": "Resolver",
+    "º marcador": "marcador {{col_index}}",
+    "Fuente-": "Fuente-{{source_index}}",
+    "Mezcla-": "Mezcla-{{mixture_index}}",
+    "Introducción datos:": "Introducción datos: ",
+    "Las siguientes mezclas no pueden haber sido generadas por las fuentes proporcionadas": "Las siguientes mezclas no pueden haber sido generadas por las fuentes proporcionadas",
+    "Se ha tomado la mezcla compatible más cercana a la proporcionada por el usuario": "Se ha tomado la mezcla compatible más cercana a la proporcionada por el usuario",
+    "Mezcla": "Mezcla "
+}

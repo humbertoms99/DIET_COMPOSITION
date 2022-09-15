@@ -1,0 +1,56 @@
+<div *ngIf="images && images.length > 0" class="carousel-container">
+
+  <div class="contenedor">    
+    <img *ngFor="let image of images; let i = index"
+      [src]="image.imageSrc" [alt]="image.imageAlt"
+      [ngClass]="{'image-active': selectedIndex === i }"
+      class=""
+    >
+    <ng-container *ngIf="selectedIndex === 0"> <!-- Primera ventana: Mixing models-->
+      <div class="centered_text">
+        <p>Los modelos de mezcla son una herramienta estadística que nos permite estimar contribuciones de fuentes a una mezcla.</p>
+        <p>Esta página permite resolver sistemas de ecuaciones lineales con restricciones, y calcular la función objetivo de estas ecuaciones</p>
+      </div> 
+      <div class="parent">
+        <div class="child">
+          {{ 'Modelos de mezcla' | translate }}
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="selectedIndex === 1"> <!-- Primera ventana: Tutoriales-->
+      <div class="parent">
+        <div class="child">
+          {{ 'Video guía' | translate }}
+        </div>
+      </div>
+      <div class="centered">
+        <video width="500" controls>
+          <source src="./../../../assets/mp4/Nature_In_10_Second_Free_4k_video_Copyright.mp4" type="video/mp4">
+          Your browser does not support HTML video.
+        </video>
+      </div>
+      
+    </ng-container>
+    
+  </div>
+
+  <div *ngIf="indicators" class="carousel-dot-container">
+    <span *ngFor="let dot of images; let i=index"
+      class="dot"
+      [ngClass]="{'active': selectedIndex === i}"
+      (click)="selectImage(i)"    
+    >
+    </span>
+  </div>
+
+  <button *ngIf="controls" class="btn-carousel btn-prev" (click)="onPrevClick()">
+    <i class="fas fa-arrow-circle-left icon-carousel icon-prev"
+      
+    ></i>
+  </button>
+  
+  <button *ngIf="controls" class="btn-carousel btn-next" (click)="onNextClick()">
+    <i class="fas fa-arrow-circle-right icon-carousel icon-next"      
+    ></i>
+  </button>
+</div>
