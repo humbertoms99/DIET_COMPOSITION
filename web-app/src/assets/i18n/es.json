@@ -13,5 +13,11 @@
     "Introducción datos:": "Introducción datos: ",
     "Las siguientes mezclas no pueden haber sido generadas por las fuentes proporcionadas": "Las siguientes mezclas no pueden haber sido generadas por las fuentes proporcionadas",
     "Se ha tomado la mezcla compatible más cercana a la proporcionada por el usuario": "Se ha tomado la mezcla compatible más cercana a la proporcionada por el usuario",
-    "Mezcla": "Mezcla "
+    "Mezcla": "Mezcla ",
+    "Problema": "Problema",
+    "Video": "Video",
+    "Video guía": "Video guía",
+    "Modelos de mezcla": "Modelos de mezcla",
+    "Los modelos de mezcla son una herramienta estadística que nos permite estimar contribuciones de fuentes a una mezcla.": "Los modelos de mezcla son una herramienta estadística que nos permite estimar contribuciones de fuentes a una mezcla.",
+    "Esta página permite resolver sistemas de ecuaciones lineales con restricciones, y calcular la función objetivo de estas ecuaciones": "Esta página permite resolver sistemas de ecuaciones lineales con restricciones, y calcular la función objetivo de estas ecuaciones"
 }

@@ -1,7 +1,7 @@
 
 <div class="topnav">
-    <a id=home class="tabmenu active" routerLink="/ventanas/matrix" routerLinkActive="active"  (click)="changeMenu('home')">Problema</a> 
-    <a id=video class="tabmenu" [routerLink]="['/ventanas/video']" routerLinkActive="active"   (click)="changeMenu('video')">Video</a>
+    <a id=home class="tabmenu active" routerLink="/ventanas/matrix" routerLinkActive="active"  (click)="changeMenu('home')">{{ 'Problema' | translate }}</a> 
+    <a id=video class="tabmenu" [routerLink]="['/ventanas/video']" routerLinkActive="active"   (click)="changeMenu('video')">{{ 'Video' | translate }}</a>
     <!-- <div class="icon"> -->
         <a href="https://github.com/humbertoms99/DIET_COMPOSITION">
             <img src="./../../../assets/png/GitHub-Mark-Light-64px.png" alt="image" style="height: 21px; ">  
