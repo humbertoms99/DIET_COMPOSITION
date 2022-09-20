@@ -1,0 +1,27 @@
+\capitulo{6}{Trabajos relacionados}
+
+%Este apartado sería parecido a un estado del arte de una tesis o tesina. En un trabajo final grado no parece obligada su presencia, aunque se puede dejar a juicio del tutor el incluir un pequeño resumen comentado de los trabajos y proyectos ya realizados en el campo del proyecto en curso. 
+
+\section{Trabajos relacionados}
+Este proyecto es el primer trabajo de fin de grado que implementa la resolución de problemas lineales para \emph{Mixing models} desde una web. Como objetivo de esta primera implementación se ha realizado el desarrollo una aplicación web híbrida.
+
+\section{Proyectos similares}
+
+\subsection{MixSIR} 
+
+MixSIR fue el primer proyecto desarrollado por Jonathan W. Moore y Brice X. Semmens sobre Bayesian Mixing Models, que estimaba las proporciones de las fuentes en una mezcla, como herramienta de calculo para ecología.
+
+En el artículo \cite{errorofMixSIR}, Andrew LLoyd Jackson, Richard Inger, Stuart Bearhop y Andrew C Parnell. Declaran un comportamiento erróneo de MixSIR. Mostrando ejemplos en los cuales MixSIR no identifica las proporciones dietéticas correctas más del 50\% de las veces.
+
+
+\subsection{SIAR} 
+SIAR es un paquete que utiliza cálculos estadísticos bayesianos principalmente orientado en la ecología sobre isótopos estables: calculando las contribuciones de las fuentes a una mezcla. Fue desarrollado por Parnell, A.C., Inger R., Bearhop, S. y Jackson, A.L. 2010 \cite{SIAR:Package}.
+
+SIAR trabaja con unos términos de error residual por cada eje isotópico. Si los datos de las mezclas son muy variables respecto a las fuentes, se utiliza este término de error residual
+
+\subsection{MixSIAR} 
+MixSIAR es un paquete de R desarrollado por Brice Semmens, Brian Stock, Eric Ward, Agrew Parnell, Donald Phillips y Andrew Jackson. Es un proyecto colaborativo que incorpora los avances en Bayesian Mixing Models, combinando MixSIR y SIAR.
+
+En el articulo \cite{analyzingMix2018} se describe su principal ventaja respecto a los desarrollos anteriores, permitiendo variar las proporciones de la mezcla y calcular mediante criterios de información el apoyo relativo.
+
+Comentar que ninguna de estos software se pueden utilizar vía web, ni tienen un diseño tan sencillo e intuitivo como el presentado en este proyecto.
