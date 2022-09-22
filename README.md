@@ -33,3 +33,6 @@ Abrimos el archivo \textbf{package.json} y copiar el contenido de la carpeta \te
 > npm install --legacy-peer-deps
 ```
 
+A continuación es necesario hacer unas configuraciones en los ficheros creados:
+
+En el \textbf
