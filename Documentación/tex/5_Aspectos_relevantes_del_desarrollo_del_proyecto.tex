@@ -59,9 +59,6 @@ Algunas de las medidas características de la metodología que se han aplicado e
 	\item Se ha establecido un tiempo de 2 semanas por cada sprint.
 \end{itemize}
 
-\section{Formación}
-
-
 \section{Desarrollo del proyecto}
 
 Durante las primeras semanas se realizó un curso de \LaTeX{} \cite{curso:latex}, con el objetivo de documentar las elecciones entre herramientas. 
@@ -157,7 +154,7 @@ El contenido de la Figura \ref{fig:pasoIntermedio} corresponde con los archivos 
 \end{figure}
 
 \newpage
-\subsection{Ciclo de la aplicación}
+\section{Ciclo de la aplicación}
 
 En este apartado vamos a comentar los pasos que realiza la aplicación y nos detendremos en los que consideremos más importantes
 
@@ -209,16 +206,17 @@ Este cambio ha significado no realizar peticiones a la API, lo cual ha derivado 
 
 \section{Internacionalización}
 
-A través de la internacionalización se consigue realizar un proceso de expansión del software, se ha diseñado la aplicación permitiendo intercambiar entre diferentes idiomas. En el caso del trabajo se permiten dos idiomas: Español e Inglés. Esto se permite desde una select en el menú superior que está siempre visible (figura \ref{fig:selectidiom}), cambiando este valor se lanza un evento que cambia una variable en localstorage. Esta variable marca el fichero de traducciones a tomar por la aplicación, los ficheros de traducciones se encuentran en la ruta \textbf{src/assets/i18n} y tienen extensión .json.
+A través de la internacionalización se consigue realizar un proceso de expansión del software. Se ha diseñado la aplicación permitiendo intercambiar entre diferentes idiomas. Se proporcionan dos idiomas: Español e Inglés. Esto se permite desde una select en el menú superior que está siempre visible (figura \ref{fig:selectidiom}), cambiando este valor se lanza un evento que cambia una variable en el localStorage. Esta variable marca el fichero de traducciones a tomar por la aplicación. Los ficheros de traducciones se encuentran en la ruta \textbf{src/assets/i18n} y tienen extensión .json.
 
 \begin{figure}[h!] 
 \centering
-    \includegraphics[width=1\textwidth]{img/selectIdiom.PNG}
+    \includegraphics[width=0.8\textwidth]{img/selectIdiom.PNG}
 \caption{Select de Idioma}
 \label{fig:selectidiom}
 \end{figure}
 
-Para realizar traducciones desde angular se hace uso del modulo Angular Translate, que mediante el pipe \textbf{translate} marca que ese texto tiene una traducción. En la ejecución de la aplicación se carga el fichero .json correspondiente a la variable comentada anteriormente. La estructura de estos archivos que podemos ver en la figura \ref{fig:en_json}, 
+\newpage
+Para realizar traducciones desde angular se hace uso del módulo Angular Translate, que mediante el pipe \textbf{translate} marca que ese texto tiene una traducción. En la ejecución de la aplicación se carga el fichero .json correspondiente a la variable \textbf{lang} en el localStorage. La estructura de estos archivos la podemos ver en la figura \ref{fig:en_json}: consiste en una cadena de texto (línea de código escrita en el fichero \emph{.html}), el símbolo \textbf{``:''} y una cadena de la traducción al idioma correspondiente.
 
 \begin{figure}[h!] 
 \centering

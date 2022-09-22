@@ -6,7 +6,32 @@ En este apéndice se detallan aspectos relacionados a la documentación técnica
 
 \section{Estructura de directorios}
 
-*CUANDO TERMINE DE SUBIR ARCHIVO TERMINO ESTE APARTADO.
+La estructura de directorios (ver figura \ref{fig:estructura_github}) del repositorio GitHub contienen la aplicación web, la API y la documentación del trabajo.
+
+\begin{figure}[h!] 
+\centering
+    \includegraphics[width=0.8\textwidth]{img/estructura_github.PNG}
+\caption{Estructura directorios, repositorio GitHub}
+\label{fig:estructura_github}
+\end{figure}
+
+\subsection{.github.workflows}
+
+Contiene archivos de configuración para el análisis de los códigos desde la herramienta Sonarcloud.
+
+\subsection{Documentación}
+
+Este directorio contiene los documentos de la memoria y los anexos. Así como los archivos .tex y las imágenes que forman los documentos.
+
+\subsection{back-api}
+
+Carpeta contiene el código de la API, que es un proyecto Laravel. Es importante destacar que este documento \textbf{no se ha usado en la parte de la subida al servidor}. Debido a problemas con la instalación de la librería GLPK \cite{glpk:package}. Pero hemos querido añadirlo, ya que ha sido un proyecto que ha servido como aprendizaje sobre como se comunican un proyecto front con un back.
+
+
+\subsection{doc\_análisis}
+
+Carpeta contiene documentos de análisis en \LaTeX. Algunas partes de estos documentos se han añadido a la memoria. Pero en su mayoría su objetivo ha sido documentar algunas lecturas interesantes del proceso de aprendizaje de herramientas. Y realizar algún documento de práctica con la nomenclatura de \LaTeX.
+
 
 \subsection{web-app}
 
@@ -73,9 +98,18 @@ En este directorio hemos subido el contenido de la carpeta \textbf{src} del proy
     \item \textbf{test.ts:} Define la configuración que va a utilizar Karma. En este archivo se define el entorno de prueba.
 \end{itemize}
 
+\subsection{Ficheros adicionales}
+
+\begin{itemize}
+    \item \textbf{LICENSE:} archivo contiene información referente a la licencia marcada en el repositorio.
+    \item \textbf{README.md:} Archivo presentación del repositorio GitHub y del proyecto.
+    \item \textbf{requeriments.txt:} contiene parte del archivo \textbf{package.json} del proyecto en Angular. Está formado por las dependencias de la aplicación, y se usa en el proceso de montaje del proyecto. 
+    \item \textbf{sonar-project.properties:} archivo de configuración de SonarCloud en el repositorio
+\end{itemize}
+
 \section{Manual del programador}
 
-En esta sección se va a realizar las configuración de un entorno de desarrollo con las herramientas principales con las que se ha trabajado.
+En esta sección se va a realizar la configuración de un entorno de desarrollo con las herramientas principales con las que se ha trabajado.
 
 \subsubsection{Instalación Visual Studio Code}
 

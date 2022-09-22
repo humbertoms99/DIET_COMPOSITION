@@ -336,7 +336,9 @@
     \noindent\LARGE
     Presentado por \@author{}\\ 
     en Universidad de Burgos --- \@date{}\\
-    Tutor: \@tutor{}\\
+    Tutores: \@tutor{}\\
+    
+    
   }%
   \end{center}%
   \null
@@ -347,10 +349,9 @@
 \newcommand{\nombre}{Humberto Marijuán Santamaría} %%% cambio de comando
 
 % Datos de portada
-\title{Mixing Models}
+\title{Modelos de Mezcla}
 \author{\nombre}
-\tutor{Luis Rodrigo Izquierdo Millán}
-\tutor{José Manuel Galán Ordax}
+\tutor{Luis R. Izquierdo y José Manuel Galán}
 \date{\today}
 
 \begin{document}
@@ -367,11 +368,11 @@
 
 \noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}
 
-\noindent D. nombre tutor, profesor del departamento de nombre departamento, área de nombre área.
+\noindent D. Luis R. Izquierdo y D. José Manuel Galán, profesores del departamento Ingeniería de Organización, área de Organización de Empresas.
 
 \noindent Expone:
 
-\noindent Que el alumno D. \nombre, con DNI 71757204X, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado Mixing Models. 
+\noindent Que el alumno D. \nombre, con DNI 71757204X, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado Modelos de Mezcla. 
 
 \noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección del que suscribe, en virtud de lo cual se autoriza su presentación y defensa.
 
@@ -384,15 +385,17 @@ En Burgos, {\large \today}
 % Author and supervisor
 \begin{minipage}{0.45\textwidth}
 \begin{flushleft} %\large
-Vº. Bº. del Tutor:\\[2cm]
-D. nombre tutor
+Vº. Bº. del Tutor:\\
+\includegraphics[width=0.8\textwidth]{img/firma-luis-transparente}\\[0.3cm]
+D. Luis R. Izquierdo
 \end{flushleft}
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
 \begin{flushleft} %\large
-Vº. Bº. del co-tutor:\\[2cm]
-D. nombre co-tutor
+Vº. Bº. del co-tutor:\\
+\includegraphics[width=0.7\textwidth]{img/Firma_Transparente}\\
+D. José Manuel Galán 
 \end{flushleft}
 \end{minipage}
 \hfill
@@ -415,9 +418,9 @@ D. nombre co-tutor
 % Abstract en castellano
 \renewcommand*\abstractname{Resumen}
 \begin{abstract}
-En este documento se exponen el proceso de desarrollo de una herramienta de cálculos estadísticos sobre Mixing Models, este tipo de herramientas suelen resolver problemas en el ámbito de la ecología, permitiendo calcular las contribuciones de las fuentes a las plantas a partir de trazadores. 
+En este documento se expone el proceso de desarrollo de una herramienta de cálculos estadísticos sobre \emph{Mixing Models} (modelos de mezcla). Este tipo de herramientas suelen resolver problemas en el ámbito de la ecología, permitiendo calcular las contribuciones de diferentes fuentes a una determinada mezcla a partir de trazadores. Algunos ejemplos de aplicaciones son el cálculo de la dieta de un animal a partir de la composición de sus sus heces, o la estimación de la procedencia geográfica de diferentes tipos de tierra que componen un sedimento. 
 
-Se ha creado una aplicación web que utiliza las librería GLPK para resolver problemas de maximización y minimización por medio de una interfaz en Typescript. Esta aplicación web permite visualizar y exportar resultados. El código de la aplicación web esta desarrollado en Angular y utiliza otros lenguajes habituales en las aplicaciones web como HTML y CSS. La aplicación esta internacionalizada a los idiomas Español e Inglés.
+Se ha creado una aplicación web que utiliza las librería GLPK para resolver problemas de maximización y minimización por medio de una interfaz en \emph{Typescript}. Esta aplicación web permite visualizar y exportar los resultados. El código de la aplicación web esta desarrollado en \emph{Angular} y utiliza otros lenguajes habituales en las aplicaciones web como HTML y CSS. La aplicación esta internacionalizada a los idiomas Español e Inglés.
 
 La aplicación permite la carga de datos a partir de archivos .csv e incluye un vídeo tutorial como guía de uso. Por último se realizó el despliegue del proyecto en Netlify con url: \url{https://mixingmodels.netlify.app}
 \end{abstract}
@@ -432,9 +435,9 @@ Aplicación web, single-page aplication, composición dieta, ecuaciones lineales
 % Abstract en inglés
 \renewcommand*\abstractname{Abstract}
 \begin{abstract}
-This document presents the development process of a statistical calculation tool on Mixing Models, this type of tool usually solves problems in the field of ecology, allowing to calculate the contributions of the sources to the plants from tracers. 
+This document presents the development process of a statistical calculation tool based on so-called \emph{Mixing Models}. This type of tool is often used to solve problems in the field of ecology, allowing to calculate the contributions of different sources to a certain mixture using tracers. 
 
-A web application has been created that uses the GLPK library to solve maximisation and minimisation problems by means of a Typescript interface. This web application allows to visualise and export results. The code of the web application is developed in Angular and uses other common languages in web applications such as HTML and CSS. The application is internationalised in Spanish and English.
+A web application has been created that uses the GLPK library to solve maximisation and minimisation problems by means of a Typescript interface, allowing the results to be visualised and exported. The code of the web application has been developed in \emph{Angular} and uses other common languages in web applications such as HTML and CSS. The application is internationalised in Spanish and English.
 
 The application allows the loading of data from .csv files and includes a video tutorial as a user guide. Finally, the project was deployed in Netlify with url: \url{https://mixingmodels.netlify.app}
 \end{abstract}
