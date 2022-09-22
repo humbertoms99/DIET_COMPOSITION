@@ -42,17 +42,6 @@ En angular.json:
 ],
 ```
 
-En package.json:
-
-```
-"browser": {
-  "fs": false,
-  "path": false,
-  "os": false,
-  "crypto": false
-}
-```
-
 En tsconfig.json:
 
 ```
@@ -125,17 +114,6 @@ In angular.json:
   "src/assets",
   "src/glpk.all.wasm"
 ],
-```
-
-In package.json:
-
-```
-"browser": {
-  "fs": false,
-  "path": false,
-  "os": false,
-  "crypto": false
-}
 ```
 
 In tsconfig.json:
