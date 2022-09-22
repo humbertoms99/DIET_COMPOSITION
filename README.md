@@ -77,3 +77,9 @@ Una vez configurado el proyecto, abrimos la terminal y nos posiciones en path de
 ```
 
 Este comando compilara y abrirá automáticamente una ventana en nuestro navegador, con la dirección http://localhost:4200/.
+
+## Aplicación desplegada
+
+La aplicación ha sido desplegada en https://www.netlify.com/, un sitio web que nos permite alojar nuestra aplicación de forma gratuita.
+
+Y puede ser accesible desde: https://mixingmodels.netlify.app/
