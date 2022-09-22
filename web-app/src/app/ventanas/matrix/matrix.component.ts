@@ -738,7 +738,8 @@ export class MatrixComponent implements OnInit {
     csvDataTest += "\n";
 
     this.samples.forEach((value ,index) => {
-      csvDataTest += ";"+ value +";;"; 
+      // csvDataTest += ";"+ value +";;"; 
+      csvDataTest += ";"+ "Mezcla- "+ (index+1) +";;"; 
     });
     csvDataTest += "\n";
 
