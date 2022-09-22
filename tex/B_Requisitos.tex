@@ -1,0 +1,221 @@
+\apendice{Especificación de Requisitos}
+
+\section{Introducción}
+
+En este apéndice se describe la especificación de requisitos. Se detallarán aquellos requisitos funcionales y no funcionales que definen el desarrollo del proyecto.
+
+\section{Objetivos generales}
+
+Los objetivos generales son: 
+
+\begin{itemize}
+    \item Crear una aplicación web para estimar diferencias y composición de la dieta de vertebrados herbívoros.
+    \item Realizar análisis matemáticos a partir de datos proporcionados por el usuario. En particular, la aplicación deberá resolver sistemas de ecuaciones lineales con restricciones.
+    \item Poner a disposición de la comunidad científica de forma gratuita.
+\end{itemize}
+
+\section{Catalogo de requisitos}
+
+Requisitos funcionales del proyecto:
+
+\begin{itemize}
+    \item \textbf{Importar datos entrada:} La aplicación debe proporciona una opción de carga de datos mediante fichero.
+    \item \textbf{Exportar datos entrada:} La aplicación debe proporcionar una opción de exportar los datos entrada usados a partir de los cuales se ha llegado al resultado actual.
+    \item \textbf{Exportar pasos intermedios:} La aplicación debe permitir exportación de los pasos intermedios o en este caso el sistema de ecuaciones, restricciones y función objetivo que se han resuelto, para cada valor de la solución.
+    \item \textbf{Exportar solución completa:} La aplicación debe ofrecer una opción de exportar la solución completa, incluyendo datos de entrada, proyecciones de los puntos y los arrays de solución.
+    \item \textbf{Traducciones al Inglés:} permitir traducir todos los textos al Inglés, incluyendo los documentos exportados por la aplicación
+    \item \textbf{Apartado guía de uso aplicación:} añadir un apartado de guía de uso en la aplicación. Se ha optado por hacer un vídeo explicativo del ciclo habitual de uso.
+    \item \textbf{Resolver sistemas de ecuaciones:} Usar la librería GLPK \cite{glpk:package} que permite calcular funciones objetivo sobre un sistema de ecuaciones con restricciones
+    \item \textbf{Selección marcadores y fuentes:} Permitir al usuario seleccionar los rangos de matriz de datos de entrada y permitir cambiar los tamaños de esta. 
+    \item \textbf{Subida a un servidor:} la aplicación debe estar subida a un servidor, donde pueda ser accedida por los usuarios online preferiblemente sin requerir una descarga previa.
+\end{itemize}
+
+Requisitos no funcionales del proyecto:
+
+\begin{itemize}
+    \item \textbf{Usabilidad: }la aplicación debe ser fácil de usar para el usuario, y fácil de entender para usuarios familiarizados con el problema  
+    \item \textbf{Compatibilidad: }la web debe ser accesible para la mayor parte de navegadores. 
+    \item \textbf{Internacionalización: } La aplicación debe incorporar traducciones a todos los textos  de la aplicación. Inicialmente al español e inglés
+    \item \textbf{Licencia : }a ser posible debe tener la licencia GNU General Public License v3.0 garantizando a los usuarios finales la libertad de estudiar, modificar, usar y compartir el software.
+\end{itemize}
+
+\section{Especificación de requisitos}
+
+\begin{table}[th!]
+\begin{tabular}{  m{5cm}  m{7cm}  }
+\hline \textbf{CU-01} & \textbf{Importar datos entrada} \\ 
+\hline
+\textbf{Versión} & 1.0\\
+\textbf{Autor} & Humberto Marijuán Santamaría\\
+\textbf{Descripción} & Permite al usuario cargar plantillas de datos\\
+\textbf{Precondición} & Disponer de una plantilla en formato .csv acorde con la esperada por la aplicación\\
+\textbf{Secuencias} & 1.Accede página principal \\ 
+                    & 2.Botón seleccionar archivo \\
+                    & 3.Seleccionar archivo entre los directorios de tu equipo \\
+\textbf{Postcondición} & Se espera una carga correcta de los datos de la plantilla\\
+\textbf{Excepciones} & En caso de tener otro formato o ser datos incorrectos no carga el archivo\\
+\textbf{Importancia} & Alta\\
+\hline
+\end{tabular}
+\caption{CU-01 Importar datos entrada}
+\label{ref:tablacu_01}
+\end{table}
+
+\begin{table}[th!]
+\begin{tabular}{  m{5cm}  m{7cm}  }
+\hline \textbf{CU-02} & \textbf{Exportar datos entrada} \\ 
+\hline
+\textbf{Versión} & 1.0\\
+\textbf{Autor} & Humberto Marijuán Santamaría\\
+\textbf{Descripción} & Permite al usuario descargar plantilla de datos\\
+\textbf{Precondición} & Haber introducido previamente datos de entrada y ejecutado la resolución del problema obteniendo una solución\\
+\textbf{Secuencias} & 1.Usuario presiona el botón Exportar problema.\\ 
+                    & 2.Se descarga un archivo con extensión .csv en forma de descarga de navegador \\
+\textbf{Postcondición} & Se espera tener un archivo plantilla con los datos de entrada del problema resuelto actual\\
+\textbf{Excepciones} & En caso de no tener solución no se puede exportar\\
+\textbf{Importancia} & Media\\
+\hline
+\end{tabular}
+\caption{CU-02 Exportar datos entrada}
+\label{ref:tablacu_02}
+\end{table}
+
+\begin{table}[th!]
+\begin{tabular}{  m{5cm}  m{7cm}  }
+\hline \textbf{CU-03} & \textbf{Exportar pasos intermedios} \\ 
+\hline
+\textbf{Versión} & 1.0\\
+\textbf{Autor} & Humberto Marijuán Santamaría\\
+\textbf{Descripción} & Exportar documento que contiene el sistema de ecuaciones con restricciones y la función objetivo\\
+\textbf{Precondición} & Haber introducido previamente datos de entrada y ejecutado la resolución del problema obteniendo una solución\\
+\textbf{Secuencias} & 1.Usuario presiona botón sobre valores solución \\ 
+                    & 2.Se descarga un archivo por descarga de navegador con extensión .csv.\\
+\textbf{Postcondición} & Se espera un documento con el sistema de ecuaciones con restricciones y su función objetivo\\
+\textbf{Excepciones} & En caso de no llegar a la solución previamente no se puede exportar\\
+\textbf{Importancia} & Bajo\\
+\hline
+\end{tabular}
+\caption{CU-03 Exportar pasos intermedio}
+\label{ref:tablacu_03}
+\end{table}
+
+\begin{table}[th!]
+\begin{tabular}{  m{5cm}  m{7cm}  }
+\hline \textbf{CU-04} & \textbf{Exportar solución completa} \\ 
+\hline
+\textbf{Versión} & 1.0\\
+\textbf{Autor} & Humberto Marijuán Santamaría\\
+\textbf{Descripción} & Permite al usuario descargar documento con datos de entrada y solución\\
+\textbf{Precondición} & Haber introducido previamente datos de entrada y ejecutado la resolución del problema obteniendo una solución\\
+\textbf{Secuencias} & 1.Usuario presiona el botón Exportar solución.\\ 
+                    & 2.Se descarga un archivo con extensión .csv en forma de descarga de navegador \\
+\textbf{Postcondición} & Se espera disponer un archivo que contenga datos de entrada y la solución de los mismo \\
+\textbf{Excepciones} & En caso de no tener solución no se puede exportar\\
+\textbf{Importancia} & Media\\
+\hline
+\end{tabular}
+\caption{CU-04 Exportar solución completa}
+\label{ref:tablacu_04}
+\end{table}
+
+\begin{table}[th!]
+\begin{tabular}{  m{5cm}  m{7cm}  }
+\hline \textbf{CU-05} & \textbf{Traducciones al Inglés} \\ 
+\hline
+\textbf{Versión} & 1.0\\
+\textbf{Autor} & Humberto Marijuán Santamaría\\
+\textbf{Descripción} & Permitir al usuario cambiar el idioma de la aplicación en este caso al menos a dos idiomas español e inglés \\
+\textbf{Precondición} & Encontrarse en la aplicación\\
+\textbf{Secuencias} & 1.click en el select del idioma actual\\ 
+                    & 2.Se cambia al deseado \\
+                    & 3.Se recarga la web \\
+\textbf{Postcondición} & Se espera que los textos de la aplicación cambien al idioma seleccionado\\
+\textbf{Excepciones} & Ninguna \\
+\textbf{Importancia} & Alta\\
+\hline
+\end{tabular}
+\caption{CU-05 Traducciones al Inglés}
+\label{ref:tablacu_05}
+\end{table}
+
+\begin{table}[th!]
+\begin{tabular}{  m{5cm}  m{7cm}  }
+\hline \textbf{CU-06} & \textbf{Resolver sistemas de ecuaciones} \\ 
+\hline
+\textbf{Versión} & 1.0\\
+\textbf{Autor} & Humberto Marijuán Santamaría\\
+\textbf{Descripción} & Resolver ecuaciones con restricciones, para ello es necesario utilizar una librería que resuelva este tipo de problemas, y además recibir estos datos y almacenarlos \\
+\textbf{Precondición} & Encontrarse en la aplicación\\
+\textbf{Secuencias} & 1.Usuario marca el tamaño de la matriz creando una matriz de ceros\\
+                    & 2.El usuario rellena los valores de la matriz configurando las ecuaciones a resolver \\
+                    & 2.El usuario pulsa botón Resolver \\
+\textbf{Postcondición} & Se espera que la aplicación muestre los arrays solución máximos y mínimos por cada mezcla\\
+\textbf{Excepciones} & No tiene solución\\
+\textbf{Importancia} & Alta\\
+\hline
+\end{tabular}
+\caption{CU-06 Resolver sistemas de ecuaciones}
+\label{ref:tablacu_06}
+\end{table}
+
+\begin{table}[th!]
+\begin{tabular}{  m{5cm}  m{7cm}  }
+\hline \textbf{CU-07} & \textbf{Apartado guía de uso aplicación} \\ 
+\hline
+\textbf{Versión} & 1.0\\
+\textbf{Autor} & Humberto Marijuán Santamaría\\
+\textbf{Descripción} & La aplicación debe contener un apartado guía de uso que explique el funcionamiento de sus funcionalidades \\
+\textbf{Precondición} & Encontrarse en la aplicación\\
+\textbf{Secuencias} & 1.Usuario se dirige al apartado Video \\
+                    & 2.El usuario encontrará un vídeo explicativo de la aplicación  \\
+\textbf{Postcondición} & Se espera que el usuario pueda ver un ejemplo de uso y algunos de los flujos principales de la aplicación\\
+\textbf{Excepciones} & Ninguna\\
+\textbf{Importancia} & Media\\
+\hline
+\end{tabular}
+\caption{CU-07 Apartado guía de uso aplicación}
+\label{ref:tablacu_07}
+\end{table}
+
+\begin{table}[th!]
+\begin{tabular}{  m{5cm}  m{7cm}  }
+\hline \textbf{CU-08} & \textbf{Selección marcadores y fuentes} \\ 
+\hline
+\textbf{Versión} & 1.0\\
+\textbf{Autor} & Humberto Marijuán Santamaría\\
+\textbf{Descripción} & La web debe permitir cambiar el número y constantes de las ecuaciones según quiera \\
+\textbf{Precondición} & Encontrarse en la aplicación\\
+\textbf{Secuencias} & 1.Usuario introduce el campo \textit{"marcadores"} \\
+                    & 2.Usuario introduce el campo fuentes \\
+                    & 3.El usuario pulsa el botón Crear  \\
+\textbf{Postcondición} & Se espera que la aplicación cree una matriz de ceros a partir de los tamaños fijados por el usuario\\
+\textbf{Excepciones} & Ninguna\\
+\textbf{Importancia} & Media\\
+\hline
+\end{tabular}
+\caption{CU-08 Selección marcadores y fuentes}
+\label{ref:tablacu_08}
+\end{table}
+
+\begin{table}[th!]
+\begin{tabular}{  m{5cm}  m{7cm}  }
+\hline \textbf{CU-09} & \textbf{Subida a un servidor} \\ 
+\hline
+\textbf{Versión} & 1.0\\
+\textbf{Autor} & Humberto Marijuán Santamaría\\
+\textbf{Descripción} & La web debe estar alojada en un servidor y permitir de esta forma el acceso a sus funcionalidades a cualquier usuario con conexión a wifi \\
+\textbf{Precondición} & Código del proyecto desarrollado\\
+\textbf{Secuencias} & 1.Usuario introduce la url de la aplicación en un navegador \\
+                    & 2.Usuario accederá a la ventana inicial de la web \\
+\textbf{Postcondición} & Se espera que el usuario consiga abrir y utilizar la aplicación en un navegador\\
+\textbf{Excepciones} & Bugs y posibles fallos no encontrados\\
+\textbf{Importancia} & Alta\\
+\hline
+\end{tabular}
+\caption{CU-09 Subida a un servidor}
+\label{ref:tablacu_09}
+\end{table}
+
+
+
+
