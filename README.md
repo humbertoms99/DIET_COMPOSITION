@@ -21,8 +21,8 @@ Abrimos la terminal y vamos a la ruta donde queremos montar el proyecto. Una vez
 Creamos un proyecto Angular, y entramos en la carpeta generada:
 
 ```
-> ng new mixing\_models
-> cd mixing\_models
+> ng new mixing_models
+> cd mixing_models
 ```
 
 Abrimos el archivo package.json y copiar el contenido del archivo requeriment.txt de este mismo repositorio GitHub. Y copiar de esta forma las dependencias del proyecto. Volvemos a la termininal y ejecutamos el comando que instalara las dependencias:
